@@ -1,0 +1,61 @@
+/*####################################
+#
+#	Autor: Hector Sevilla
+#	Descripcion: Hoja de estilos para 
+#				 la plantilla web de 
+				 laboratorios rarpe
+#	Fecha: 29/09/2014
+#	Hora: 15:21
+#
+#####################################*/
+
+@import 'fonts.styl'
+@import 'nib'
+
+
+//Colores
+azul_principal= #3261ab
+gris = #eef2f7
+texto = #424242
+gris_puro = #1a1a1a
+
+//OOCSS
+.ancho
+	width 1140px
+.relativo
+	position relative
+.absoluto
+	position absolute
+.fix
+	overflow hidden
+.left
+	float left
+.right
+	float right
+
+[class^="icon-"], [class*=" icon-"]
+	font-family 'icomoon'
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none
+	line-height 1
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+.icon-telefono
+	&:before
+		content "\e602"
+.icon-slogan
+	&:before
+    	content "\e600"
+.icon-rarpeLogo
+	&:before
+    	content "\e603"
+.icon-mail
+	&:before
+    	content "\e604"
+.icon-facebook
+	&:before
+    	content "\e601"
