@@ -95,6 +95,7 @@ h2
 	padding 15px 0
 	text-transform uppercase
 
+
 /*###############################################################################
 	1- BARRA SUPERIOR
 ################################################################################*/
@@ -162,6 +163,9 @@ header
 	3- SLIDER
 ################################################################################*/
 .slider
+	font-size 0
+	position relative
+	z-index -50
 	img
 		height auto
 		width 100%
@@ -172,8 +176,11 @@ header
 
 .categorias
 	background-color: gris
+	clearfix()
+	width 100%
 	.item
 		text-align center
+		position relative
 		padding 1rem 0
 		figure
 			border-radius 3px
@@ -192,7 +199,42 @@ header
 		.descripcion
 			margin 0 auto
 			text-align justify
-			width 50%
+			width 80%
+		.item-hover
+			//display none
+			//box-sizing border-box
+			background-color: azul_principal
+			border-radius 30px 5px 5px 5px
+			height 205px
+			opacity 0
+			padding-top 4rem
+			position absolute
+			top -20px
+			transform rotateX(90deg)
+			transition all 1s ease 0s
+			z-index 100
+			.titulo
+				a
+					&:link
+					&:visited
+						color white
+			.descripcion
+				color white
+				width 80%
+			.more
+				padding 15px 0
+				a
+					&:link
+					&:visited
+						color white
+					&:hover
+						text-decoration underline
+		&:hover
+			.item-hover
+				//display block
+				transform rotateX(0deg)
+				opacity 1
+				
 
 /*###############################################################################
 	5- SECCION PRINCIPAL
@@ -349,3 +391,145 @@ footer
 					&:link
 					&:visited
 						font-size: 6rem
+	footer
+		&.phones
+			.direccion
+			.info
+				margin 0 auto
+				width 15rem
+			.formulario
+				margin 0 auto
+				width 20rem
+			.copy
+				text-align: center
+
+@media screen and (min-width:768px)
+	header
+		&.tablet
+			overflow hidden
+			.logotipo
+				float left
+			#menuMovil
+				float right
+				margin-top 1.8rem
+				width 40%
+	section
+		&.tablet
+			padding 3rem
+			.destacados
+				text-align: center
+				.caja
+					max-width 500px
+					margin-left auto
+					margin-right auto
+					.detalles
+						overflow hidden
+						.titulo
+							float left
+							width 70%
+						.showmore
+							float left
+							width 20%
+							border-radius 0 0 5px 0
+				.more
+					float none
+	footer
+		&.tablet
+			overflow hidden
+			padding 25px
+			article
+				display inline-block
+				vertical-align top
+				width 48%
+				.titulo
+				.menu
+					text-align: left
+				.direccion
+				.info
+					margin 0
+				&.seguridad
+					text-align left
+				&:first-child
+				&:nth-child(3)
+					margin-right 1rem
+			.formulario
+				text-align: right
+				margin 0
+
+@media screen and (min-width:1024px)
+	.barra_superior
+		&.large
+			.ancho
+				margin 0 auto
+				width 62.5rem
+				.telefono
+					display inline-block
+					vertical-align top
+					float left
+				.slogan
+					float none
+					display inline-block
+					vertical-align top
+	header
+		&.large
+			padding-left 5px
+			padding-right 5px
+			text-align: left
+			.ancho
+				margin 0 auto
+				width 62.5rem
+			.logotipo
+				display inline-block
+				float none
+				vertical-align bottom
+				width 26%
+				a
+					&:link
+					&:visited
+						font-size: 4.5rem
+			nav
+				display inline-block
+				text-align right
+				vertical-align bottom
+				width 73%
+				li
+					display inline-block
+					padding-left 5px
+					padding-right 5px
+					vertical-align top
+					a
+						&:link
+						&:visited
+							font-size 14px
+						&:hover
+							text-decoration underline
+							
+			#menuMovil
+				display none
+	.categorias
+		&.large
+			.ancho
+				width 62.5rem
+	section
+		&.large
+			padding-left 1rem
+			padding-right 1rem
+			.empresa
+				float left
+				width 617px
+			.actualidades
+				float right
+				width 326px
+			.destacados
+				margin 0 auto
+				text-align: center
+				width 62.5rem
+				h2
+					text-align left
+				.caja
+					display inline-block
+					vertical-align top
+					width 300px
+					margin-right 15px
+					&:nth-child(3)
+						margin-right 0
