@@ -212,12 +212,17 @@ h2 {
 header {
   padding-top: 1.8rem;
   border-bottom: 2px solid #3261ab;
+  background-color: #fff;
 }
 
 header .logotipo a:link,
 header .logotipo a:visited {
   color: #1a1a1a;
   font-size: 5.5rem;
+}
+
+header nav {
+  position: relative;
 }
 
 header nav ul li {
@@ -227,7 +232,67 @@ header nav ul li {
 header nav ul li a:link,
 header nav ul li a:visited {
   color: #4e4d4d;
+  padding-bottom: 52px;
   text-transform: uppercase;
+}
+
+header nav ul li ul {
+  background: none repeat 0 0 rgba(255,255,255,0.9);
+  border-top: 4px solid #3261ab;
+  -webkit-box-shadow: 0 3px 6px #8e8e8e;
+  box-shadow: 0 3px 6px #8e8e8e;
+  left: -9999px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 56px;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -moz-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  -ms-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+  width: 250px;
+  z-index: 999;
+}
+
+header nav ul li ul li {
+  border-bottom: 1px solid #b6b4b3;
+  display: block !important;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+header nav ul li ul li:hover {
+  background-color: #3261ab;
+}
+
+header nav ul li ul li a:link,
+header nav ul li ul li a:visited {
+  display: block;
+  padding: 8px 35px;
+  text-align: left;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+header nav ul li ul li:hover a {
+  color: #fff;
+  padding-left: 40px;
+  text-decoration: none;
+}
+
+header nav ul li:hover ul {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  left: 0;
 }
 
 .slider {
@@ -381,10 +446,53 @@ section .actualidades figure img {
 
 section .destacados .caja {
   margin: 4rem 0;
+  position: relative;
 }
 
 section .destacados .caja figure {
   text-align: center;
+}
+
+section .destacados .caja .caja-hover {
+  background: none repeat 0 0 rgba(78,77,77,0.3);
+  height: 204px;
+  left: 0;
+  line-height: 1.5;
+  position: absolute;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 4.2rem;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: all 1s ease 0s;
+  -moz-transition: all 1s ease 0s;
+  -o-transition: all 1s ease 0s;
+  -ms-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+  top: 0;
+  width: 300px;
+}
+
+section .destacados .caja .caja-hover a:link,
+section .destacados .caja .caja-hover a:visited {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: RarpeBold;
+}
+
+section .destacados .caja .caja-hover a:hover {
+  color: #3261ab;
+}
+
+section .destacados .caja:hover .caja-hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 
 section .destacados .caja .detalles .titulo {
@@ -566,7 +674,17 @@ footer .copy {
 
 @media screen and (min-width:768px) {
   header.tablet {
-    overflow: hidden;
+    zoom: 1;
+  }
+
+  header.tablet:before,
+  header.tablet:after {
+    content: "";
+    display: table;
+  }
+
+  header.tablet:after {
+    clear: both;
   }
 
   header.tablet .logotipo {
@@ -599,7 +717,7 @@ footer .copy {
 
   section.tablet .destacados .caja .detalles .titulo {
     float: left;
-    width: 70%;
+    width: 74%;
   }
 
   section.tablet .destacados .caja .detalles .showmore {
@@ -668,6 +786,7 @@ footer .copy {
   }
 
   header.large {
+    background-color: #fff !important;
     padding-left: 5px;
     padding-right: 5px;
     text-align: left;
@@ -692,6 +811,7 @@ footer .copy {
 
   header.large nav {
     display: inline-block;
+    margin-bottom: 6px;
     text-align: right;
     vertical-align: bottom;
     width: 73%;
@@ -710,16 +830,32 @@ footer .copy {
   }
 
   header.large nav li a:hover {
-    text-decoration: underline;
+    opacity: .8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
   }
 
   header.large #menuMovil {
     display: none;
   }
 
+  .ancho.large {
+    background-color: #eef2f7;
+  }
+
+  .ancho.large .envoltura {
+    margin: 0 auto;
+    width: 90%;
+  }
+
   section.large {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  section.large .ancho {
+    margin: 0 auto;
+    width: 62.5rem;
   }
 
   section.large .empresa {
@@ -749,7 +885,48 @@ footer .copy {
     margin-right: 15px;
   }
 
-  section.large .destacados .caja:nth-child(3) {
+  section.large .destacados .caja:nth-child(4) {
     margin-right: 0;
+  }
+
+  section.large .destacados .caja .detalles .titulo {
+    font-size: 14px;
+    height: 34px;
+    line-height: 2;
+    overflow: hidden;
+    padding: 6px 0 0 2px;
+    text-align: left;
+  }
+
+  footer.large .ancho {
+    margin: 0 auto;
+    width: 62.5rem;
+  }
+
+  footer.large .ancho article {
+    max-width: 200px;
+  }
+
+  footer.large .ancho article .formulario {
+    max-width: 200px;
+  }
+
+  footer.large .ancho article .direccion,
+  footer.large .ancho article .info {
+    max-width: 200px;
+    padding-left: 0;
+  }
+
+  footer.large .ancho article:first-child {
+    margin-right: 1rem;
+  }
+
+  footer.large .ancho article:nth-child(2),
+  footer.large .ancho article:nth-child(3) {
+    margin-right: 5rem;
+  }
+
+  footer.large .ancho .copy {
+    text-align: left;
   }
 }

@@ -142,6 +142,7 @@ h2
 header
 	padding-top 1.8rem
 	border-bottom 2px solid azul_principal
+	background-color: #FFF
 	.logotipo
 		a
 			&:link
@@ -149,6 +150,7 @@ header
 				color gris_puro
 				font-size 5.5rem
 	nav
+		position relative
 		ul
 			li
 				//alinear()
@@ -157,7 +159,41 @@ header
 					&:link
 					&:visited
 						color enlaces
+						padding-bottom 52px
 						text-transform uppercase
+				ul
+					background none repeat 0 0 rgba(255, 255, 255, .9)
+					border-top 4px solid azul_principal
+					box-shadow 0 3px 6px #8e8e8e
+					left -9999px
+					opacity 0
+					position absolute
+					top 56px
+					transition opacity 0.5s ease 0s
+					width 250px
+					z-index 999
+					li
+						border-bottom 1px solid #b6b4b3
+						display block !important
+						transition all .5s ease 0s
+						&:hover
+							background-color: azul_principal
+						a
+							&:link
+							&:visited
+								display block
+								padding 8px 35px
+								text-align left
+								transition all .5s ease 0s
+						&:hover
+							a
+								color white
+								padding-left 40px
+								text-decoration none
+				&:hover
+					ul
+						opacity 1
+						left 0
 
 /*###############################################################################
 	3- SLIDER
@@ -267,8 +303,34 @@ section
 	.destacados
 		.caja
 			margin 4rem 0
+			position relative
 			figure
 				text-align center
+			.caja-hover
+				background none repeat 0 0 rgba(78, 77, 77, .3)
+				height 204px
+				left 0
+				line-height 1.5
+				position absolute
+				text-align center
+				box-sizing border-box
+				padding-top 4.2rem
+				border-radius 5px 5px 0 0
+				opacity 0
+				transition all 1s ease 0s
+				top 0
+				width 300px
+				a
+					&:link
+					&:visited
+						color white
+						text-transform uppercase
+						font-family: RarpeBold
+					&:hover
+						color azul_principal
+			&:hover
+				.caja-hover
+					opacity 1
 			.detalles
 				.titulo
 					background-color: gris
@@ -406,7 +468,7 @@ footer
 @media screen and (min-width:768px)
 	header
 		&.tablet
-			overflow hidden
+			clearfix()
 			.logotipo
 				float left
 			#menuMovil
@@ -426,7 +488,7 @@ footer
 						overflow hidden
 						.titulo
 							float left
-							width 70%
+							width 74%
 						.showmore
 							float left
 							width 20%
@@ -472,6 +534,7 @@ footer
 					vertical-align top
 	header
 		&.large
+			background-color: #FFF !important
 			padding-left 5px
 			padding-right 5px
 			text-align: left
@@ -489,6 +552,7 @@ footer
 						font-size: 4.5rem
 			nav
 				display inline-block
+				margin-bottom 6px
 				text-align right
 				vertical-align bottom
 				width 73%
@@ -502,18 +566,27 @@ footer
 						&:visited
 							font-size 14px
 						&:hover
-							text-decoration underline
+							opacity .8
 							
 			#menuMovil
 				display none
-	.categorias
+	.ancho
 		&.large
-			.ancho
-				width 62.5rem
+			background-color: gris
+			.envoltura
+				margin 0 auto
+				width 90%
+				.slick-track
+					margin-left auto
+					margin-right auto
+				
 	section
 		&.large
 			padding-left 1rem
 			padding-right 1rem
+			.ancho
+				margin 0 auto
+				width 62.5rem
 			.empresa
 				float left
 				width 617px
@@ -531,5 +604,33 @@ footer
 					vertical-align top
 					width 300px
 					margin-right 15px
-					&:nth-child(3)
+					&:nth-child(4)
 						margin-right 0
+					.detalles
+						.titulo
+							font-size: 14px
+							height 34px
+							line-height 2
+							overflow hidden
+							padding 6px 0 0 2px 
+							text-align: left
+	footer
+		&.large
+			.ancho
+				margin 0 auto
+				width 62.5rem
+				article
+					max-width 200px
+					.formulario
+						max-width 200px
+					.direccion
+					.info
+						max-width 200px
+						padding-left 0
+					&:first-child
+						margin-right 1rem
+					&:nth-child(2)
+					&:nth-child(3)
+						margin-right 5rem
+				.copy
+					text-align left
