@@ -13,6 +13,7 @@
 
 @import 'fonts.styl'
 @import 'normalize.styl'
+@import 'slick.styl'
 @import 'bxslider.styl'
 @import 'flexisel.styl'
 @import 'nib'
@@ -88,12 +89,17 @@ body
 	font-family 'RarpeRoman'
 	font-size 16px
 	color texto
-h2
+.heading
 	border-bottom 1px solid azul_principal
-	font-family 'RarpeRoman'
-	font-size 1.2rem
-	padding 15px 0
-	text-transform uppercase
+	margin 15px 0
+	h2
+		border-bottom 4px solid azul_principal
+		display inline-block
+		font-family 'RarpeRoman'
+		font-size 1.2rem
+		margin 0
+		padding 15px 0
+		text-transform uppercase
 
 
 /*###############################################################################
@@ -161,6 +167,8 @@ header
 						color enlaces
 						padding-bottom 52px
 						text-transform uppercase
+					&:hover
+						color azul_principal
 				ul
 					background none repeat 0 0 rgba(255, 255, 255, .9)
 					border-top 4px solid azul_principal
@@ -170,7 +178,7 @@ header
 					position absolute
 					top 56px
 					transition opacity 0.5s ease 0s
-					width 250px
+					width 200px
 					z-index 999
 					li
 						border-bottom 1px solid #b6b4b3
@@ -201,7 +209,7 @@ header
 .slider
 	font-size 0
 	position relative
-	z-index -50
+	z-index 1
 	img
 		height auto
 		width 100%
@@ -241,13 +249,14 @@ header
 			//box-sizing border-box
 			background-color: azul_principal
 			border-radius 30px 5px 5px 5px
-			height 205px
+			height 135px
 			opacity 0
-			padding-top 4rem
+			padding-top 2rem
+			padding-bottom: 2rem
 			position absolute
-			top -20px
+			top 3px
 			transform rotateX(90deg)
-			transition all 1s ease 0s
+			transition all .3s ease 0s
 			z-index 100
 			.titulo
 				a
@@ -284,11 +293,11 @@ section
 				height auto
 				width 100%
 	.more
-		padding 15px
+		padding 10px
 		border 1px solid azul_principal
 		display inline-block
 		border-radius 5px
-		margin 10px 0
+		margin 0 0 10px 0
 		a
 			&:link
 			&:visited
@@ -307,7 +316,7 @@ section
 			figure
 				text-align center
 			.caja-hover
-				background none repeat 0 0 rgba(78, 77, 77, .3)
+				background none repeat 0 0 rgba(78, 77, 77, .1)
 				height 204px
 				left 0
 				line-height 1.5
@@ -356,9 +365,10 @@ footer
 		padding 12px 0
 		p
 			&.titulo
-				text-transform uppercase
-				text-align center
+				color azul_principal
 				margin 15px 0
+				text-align center
+				text-transform uppercase
 		.menu
 			text-align center
 			li
@@ -367,7 +377,7 @@ footer
 					&:link
 					&:visited
 						color #bcbcbc
-						text-transform uppercase
+						text-transform capitalize
 					&:hover
 						color azul_principal
 		.info
@@ -386,8 +396,8 @@ footer
 				border-radius 5px
 				color #bcbcbc
 				display inline-block
-				margin 8px 0
-				padding 10px 5px
+				margin 0 0 12px 0
+				padding 7px 5px
 				width 95%
 			input[type="submit"]
 				background-color: #4e4d4d
@@ -477,7 +487,10 @@ footer
 				width 40%
 	section
 		&.tablet
-			padding 3rem
+			padding 0 3rem 3rem 3rem
+			.destacados
+				.heading
+					text-align: left
 			.destacados
 				text-align: center
 				.caja
@@ -488,11 +501,13 @@ footer
 						overflow hidden
 						.titulo
 							float left
-							width 74%
+							width 73%
 						.showmore
 							float left
 							width 20%
 							border-radius 0 0 5px 0
+					.caja-hover
+						width 99.4%
 				.more
 					float none
 	footer
@@ -523,6 +538,7 @@ footer
 		&.large
 			.ancho
 				margin 0 auto
+				height 34px
 				width 62.5rem
 				.telefono
 					display inline-block
@@ -614,8 +630,11 @@ footer
 							overflow hidden
 							padding 6px 0 0 2px 
 							text-align: left
+				.more
+					float right
 	footer
 		&.large
+			padding 0
 			.ancho
 				margin 0 auto
 				width 62.5rem
@@ -625,6 +644,7 @@ footer
 						max-width 200px
 					.direccion
 					.info
+						font-size: 14px
 						max-width 200px
 						padding-left 0
 					&:first-child
