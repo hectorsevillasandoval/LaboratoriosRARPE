@@ -19,6 +19,13 @@
   src: url("../fonts/humanst521-bt-bold-webfont.eot?#iefix") format('embedded-opentype'),url("../fonts/humanst521-bt-bold-webfont.woff") format('woff'),url("../fonts/humanst521-bt-bold-webfont.ttf") format('truetype'),url("../fonts/humanst521-bt-bold-webfont.svg#RarpeBold") format('svg');
 }
 
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  src: url("../fonts/slick.eot");
+  src: url("../fonts/slick.eot?#iefix") format('embedded-opentype'),url("../fonts/slick.woff") format('woff'),url("../fonts/slick.ttf") format('truetype'),url("../fonts/slick.svg#slick") format('svg');
+}
+
 /* normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 html {
@@ -153,10 +160,17 @@ body {
   color: #424242;
 }
 
-h2 {
+.heading {
   border-bottom: 1px solid #3261ab;
+  margin: 15px 0;
+}
+
+.heading h2 {
+  border-bottom: 4px solid #3261ab;
+  display: inline-block;
   font-family: 'RarpeRoman';
   font-size: 1.2rem;
+  margin: 0;
   padding: 15px 0;
   text-transform: uppercase;
 }
@@ -236,6 +250,10 @@ header nav ul li a:visited {
   text-transform: uppercase;
 }
 
+header nav ul li a:hover {
+  color: #3261ab;
+}
+
 header nav ul li ul {
   background: none repeat 0 0 rgba(255,255,255,0.9);
   border-top: 4px solid #3261ab;
@@ -252,7 +270,7 @@ header nav ul li ul {
   -o-transition: opacity 0.5s ease 0s;
   -ms-transition: opacity 0.5s ease 0s;
   transition: opacity 0.5s ease 0s;
-  width: 250px;
+  width: 200px;
   z-index: 999;
 }
 
@@ -298,7 +316,7 @@ header nav ul li:hover ul {
 .slider {
   font-size: 0;
   position: relative;
-  z-index: -50;
+  z-index: 1;
 }
 
 .slider img {
@@ -358,23 +376,25 @@ header nav ul li:hover ul {
   background-color: #3261ab;
   -webkit-border-radius: 30px 5px 5px 5px;
   border-radius: 30px 5px 5px 5px;
-  height: 205px;
+  height: 135px;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  padding-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   position: absolute;
-  top: -20px;
+  top: 3px;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
   -o-transform: rotateX(90deg);
   -ms-transform: rotateX(90deg);
   transform: rotateX(90deg);
-  -webkit-transition: all 1s ease 0s;
-  -moz-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  -ms-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
   z-index: 100;
 }
 
@@ -422,12 +442,12 @@ section .empresa figure img {
 }
 
 section .more {
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #3261ab;
   display: inline-block;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 0 0 10px 0;
 }
 
 section .more a:link,
@@ -454,7 +474,7 @@ section .destacados .caja figure {
 }
 
 section .destacados .caja .caja-hover {
-  background: none repeat 0 0 rgba(78,77,77,0.3);
+  background: none repeat 0 0 rgba(78,77,77,0.1);
   height: 204px;
   left: 0;
   line-height: 1.5;
@@ -524,9 +544,10 @@ footer article {
 }
 
 footer article p.titulo {
-  text-transform: uppercase;
-  text-align: center;
+  color: #3261ab;
   margin: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 footer article .menu {
@@ -540,7 +561,7 @@ footer article .menu li {
 footer article .menu li a:link,
 footer article .menu li a:visited {
   color: #bcbcbc;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 footer article .menu li a:hover {
@@ -572,8 +593,8 @@ footer article .formulario textarea {
   border-radius: 5px;
   color: #bcbcbc;
   display: inline-block;
-  margin: 8px 0;
-  padding: 10px 5px;
+  margin: 0 0 12px 0;
+  padding: 7px 5px;
   width: 95%;
 }
 
@@ -698,7 +719,11 @@ footer .copy {
   }
 
   section.tablet {
-    padding: 3rem;
+    padding: 0 3rem 3rem 3rem;
+  }
+
+  section.tablet .destacados .heading {
+    text-align: left;
   }
 
   section.tablet .destacados {
@@ -717,7 +742,7 @@ footer .copy {
 
   section.tablet .destacados .caja .detalles .titulo {
     float: left;
-    width: 74%;
+    width: 73%;
   }
 
   section.tablet .destacados .caja .detalles .showmore {
@@ -725,6 +750,10 @@ footer .copy {
     width: 20%;
     -webkit-border-radius: 0 0 5px 0;
     border-radius: 0 0 5px 0;
+  }
+
+  section.tablet .destacados .caja .caja-hover {
+    width: 99.4%;
   }
 
   section.tablet .destacados .more {
@@ -770,7 +799,8 @@ footer .copy {
 @media screen and (min-width:1024px) {
   .barra_superior.large .ancho {
     margin: 0 auto;
-    width: 62.5rem;
+    height: 34px;
+    width: 73.7rem;
   }
 
   .barra_superior.large .ancho .telefono {
@@ -794,7 +824,7 @@ footer .copy {
 
   header.large .ancho {
     margin: 0 auto;
-    width: 62.5rem;
+    width: 73.7rem;
   }
 
   header.large .logotipo {
@@ -826,7 +856,8 @@ footer .copy {
 
   header.large nav li a:link,
   header.large nav li a:visited {
-    font-size: 14px;
+    font-family: RarpeBold;
+    font-size: 16px;
   }
 
   header.large nav li a:hover {
@@ -898,6 +929,14 @@ footer .copy {
     text-align: left;
   }
 
+  section.large .destacados .more {
+    float: right;
+  }
+
+  footer.large {
+    padding: 0;
+  }
+
   footer.large .ancho {
     margin: 0 auto;
     width: 62.5rem;
@@ -913,6 +952,7 @@ footer .copy {
 
   footer.large .ancho article .direccion,
   footer.large .ancho article .info {
+    font-size: 14px;
     max-width: 200px;
     padding-left: 0;
   }
